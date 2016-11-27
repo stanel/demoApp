@@ -26,11 +26,13 @@ mixin buildRowColumns(rowNumber, classForEvenColumnNumbers, classForOddColumnNum
         div(class='col-md-12')
             +buildRowNumber(rowNumber)
 
-            -for (var i = 1; i <= 8; i++)
+            -for (var i = 1; i <= 8; i++)                
+                - var cellId = chessBoard.getCellId(rowNumber,i)
+
                 if(i % 2 === 0)
-                    div(id='cell_'+rowNumber+'_'+i,class=classForEvenColumnNumbers)
+                    div(id=cellId,class=classForEvenColumnNumbers)
                 else
-                    div(id='cell_'+rowNumber+'_'+i,class=classForOddColumnNumbers)                        
+                    div(id=cellId,class=classForOddColumnNumbers)                        
 
 mixin buildRowNumber(rowNumber)
     div(class='rowNumber') 
