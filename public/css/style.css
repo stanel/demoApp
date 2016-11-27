@@ -13,6 +13,26 @@
     margin-top:10px;    
 }
 
+.rowNumber{
+    width:30px;
+    height:55px;
+    float:left;
+    font-size:19px;
+    padding-top:12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.columnNumber{
+    width:55px;
+    height:55px;
+    float:left;
+    font-size:19px;
+    padding-top:12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
 /*it should be configurable*/
 .cell-white .cell-black{
     width:55px;

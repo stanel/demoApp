@@ -15,6 +15,16 @@ QUnit.test('getFigures', function (assert) {
     assert.equal(figures.length, 6);
 });
 
+QUnit.test('getDisplayRowNumber', function (assert) {
+    var rowNumber = chessBoard.getDisplayRowNumber(3);
+    assert.equal(rowNumber, 6);
+});
+
+QUnit.test('getDisplayRowNumber', function (assert) {
+    var column = chessBoard.getDisplayColumnNumber(3);
+    assert.equal(column, 'C');
+});
+
 assertGetFigureXPositionInSpriteImageIsWorking('pawn', 0);
 assertGetFigureXPositionInSpriteImageIsWorking('knight', -54);
 assertGetFigureXPositionInSpriteImageIsWorking('bishop', -108);

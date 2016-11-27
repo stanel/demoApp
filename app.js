@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var pug = require('pug');
+var chessBoardFactory = require('./public/js/ChessBoardV3');
+var chessBoard = new chessBoardFactory.ChessBoard();
 
 initApp(app, pug);
 
@@ -40,7 +42,8 @@ function getPage(app, pug, relativePageUrl, pathToThePage, thePageTitle, thePage
         var compiledFunction = pug.compileFile(templateFilePath);
         var html = compiledFunction({
             pageTitle: thePageTitle,
-            pageName: thePageName
+            pageName: thePageName,
+            chessBoard : chessBoard,
         });
 
         console.log('served the page ' + relativePageUrl);

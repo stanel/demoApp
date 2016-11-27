@@ -5,8 +5,17 @@ mixin buildChessBoard(chessBoardId)
     div(id=chessBoardId)
         -for (var i = 1; i <= 8; i++)
             +buildRow(i)
+        
+        +buildColumnNumbers
+        
+mixin buildColumnNumbers        
+    div(class='row')   
+        div(class='col-md-12')
+            div(class='rowNumber')
+            -for (var i = 1; i <= 8; i++)
+                +buildColumnNumber(i)
 
-mixin buildRow(rowNumber)
+mixin buildRow(rowNumber)    
     if(rowNumber % 2 === 0)
         +buildRowColumns(rowNumber, 'cell-white','cell-black')
     else
@@ -15,11 +24,21 @@ mixin buildRow(rowNumber)
 mixin buildRowColumns(rowNumber, classForEvenColumnNumbers, classForOddColumnNumbers)                
     div(class='row')   
         div(class='col-md-12')
+            +buildRowNumber(rowNumber)
+
             -for (var i = 1; i <= 8; i++)
                 if(i % 2 === 0)
                     div(id='cell_'+rowNumber+'_'+i,class=classForEvenColumnNumbers)
                 else
-                    div(id='cell_'+rowNumber+'_'+i,class=classForOddColumnNumbers)
+                    div(id='cell_'+rowNumber+'_'+i,class=classForOddColumnNumbers)                        
+
+mixin buildRowNumber(rowNumber)
+    div(class='rowNumber') 
+        | #{chessBoard.getDisplayRowNumber(rowNumber)}
+
+mixin buildColumnNumber(columnNumber)
+    div(class='columnNumber') 
+        | #{chessBoard.getDisplayColumnNumber(columnNumber)}        
 
 block childMainContent    
     script(src='js/ChessBoardV3.js')

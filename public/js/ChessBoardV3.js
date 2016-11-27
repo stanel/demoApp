@@ -19,6 +19,22 @@ function ChessBoardV3() {
     }
 
     /**
+     * Gets the row number to display.
+     */
+    this.getDisplayRowNumber = function(rowNumber){
+        return 9 - rowNumber;
+    }
+
+    /**
+     * Gets the column number to display.
+     */
+    this.getDisplayColumnNumber = function (columnNumber){
+        var columns = ['A','B','C','D','E','F','G','H'];
+
+        return columns[columnNumber-1];
+    }
+
+    /**
      * Gets all the figures. 
      */
     this.getFigures = function () {
@@ -56,3 +72,8 @@ function ChessBoardV3() {
         return style;
     }
 }
+
+module.exports = {
+    ChessBoard : ChessBoardV3,
+}
+
