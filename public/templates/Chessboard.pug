@@ -8,9 +8,9 @@ mixin buildChessBoard(chessBoardId)
 
 mixin buildRow(rowNumber)
     if(rowNumber % 2 === 0)
-        +buildRowColumns(rowNumber, 'cell-black','cell-white')
-    else
         +buildRowColumns(rowNumber, 'cell-white','cell-black')
+    else
+        +buildRowColumns(rowNumber, 'cell-black','cell-white')
 
 mixin buildRowColumns(rowNumber, classForEvenColumnNumbers, classForOddColumnNumbers)                
     div(class='row')   
