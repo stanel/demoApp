@@ -4,12 +4,22 @@ block childMainContent
     script(src='js/ChessBoardV3.js')
     script(src='js/FigureArranger.js')
 
+    script(src='js/ChessKnightProblem/App.js')
+    script(src='js/ChessKnightProblem/ChessKnightVisit.js')
+    script(src='js/ChessKnightProblem/KnightPositionDetector.js')
+
     include includes/Chessboard.pug
 
     +buildChessBoard('theChessBoardInstance') 
 
+    p(id='FeedbackLabel') 
+    input(type="button" value="Suche eine Lösung" onclick="javascript:findSolution();")    
+    
     script.
-        var figureArranger = new FigureArranger();
-        figureArranger.arrangeText('theChessBoardInstance',2,3,'hb')
+        var app = new App('theChessBoardInstance','FeedbackLabel');
+
+        function findSolution(){            
+            app.findAndDisplaySolution();
+        }        
 
     
