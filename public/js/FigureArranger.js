@@ -38,9 +38,19 @@ function FigureArranger() {
         this.arrangeFigure(chessBoardId, line, 8, color, 'tower');
     }
 
-    this.arrangeFigure = function (chessBoardId, row, column, color, figure) {
+    this.getCell = function(chessBoardId, row, column){
         var cellId = this.chessBoard.getCellId(row, column);
-        var cell = $('#' + chessBoardId + ' #' + cellId + '');
+        return $('#' + chessBoardId + ' #' + cellId + '');        
+    }
+
+    this.arrangeText = function(chessBoardId, row, column, text){        
+        var cell = this.getCell(chessBoardId, row, column);
+
+        $(cell).html(text);        
+    }
+
+    this.arrangeFigure = function (chessBoardId, row, column, color, figure) {        
+        var cell = this.getCell(chessBoardId, row, column);
         var figureId = this.chessBoard.getFigureId(color, figure); 
         var htmlForFigure = '<div id="' + figureId + '" style="' + this.chessBoard.getStyleFor(color, figure) + '"></div>';
         cell.html(htmlForFigure);
