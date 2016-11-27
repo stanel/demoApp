@@ -16,10 +16,11 @@ function initApp(app, pug) {
         res.send('This is the index page');
     });
 
-    var pageTitle = 'kurze demo Anwendung mit node.js, expressjs, pug und bootstrap';
+    var pageTitle = 'Stefan Prodana: Demo mit node.js, express, pug, jQuery gehostet im AWS';
 
-    getPage(app, pug, '/Chessboard.html', '/public/templates/Chessboard.pug', pageTitle, 'Schachbrett');
+    getPage(app, pug, '/ChessBoard.html', '/public/templates/ChessBoardDemo.pug', pageTitle, 'Schachbrett');
     getPage(app, pug, '/Chessgame.html', '/public/templates/Chessgame.pug', pageTitle, 'Schachspiel');
+    getPage(app, pug, '/KnightProblem.html', '/public/templates/KnightProblem.pug', pageTitle, 'Schach Springer Problem');
     getPage(app, pug, '/Description.html', '/public/templates/Description.pug', pageTitle, 'Kurze Beschreibung');
     getPage(app, pug, '/JsTests.html', '/public/templates/jsTests.pug', pageTitle, 'JavaScript Teste');
 

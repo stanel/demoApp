@@ -18,25 +18,26 @@ html
         script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
         
     body 
-        div(class='container')
-            div(class='row containerDebug')
-                p kurze demo Anwendung mit node.js, expressjs, pug und bootstrap
-            div(class='row containerDebug')
-                div(class='col-md-4 containerDebug')
-                div(class='col-md-8 containerDebug')
-                    p #{pageName}                
-            div(class='row containerDebug')
-                div(class='col-md-4 containerDebug')
+        div(class='container app')
+            div(class='row PageTitle')
+                h2 #{pageTitle}
+            div(class='row pageNameArea')                
+                div(class='col-md-12')
+                    h3 #{pageName}                
+            div(class='row')
+                div(class='col-md-3')
                     ul(class='Navigation')
                         li 
-                            a(href='Chessboard.html') Schachbrett
+                            a(href='ChessBoard.html') Schachbrett
                         li
                             a(href='Chessgame.html') Schachspiel
+                        li
+                            a(href='KnightProblem.html') Schach Springer Problem                            
                         li
                             a(href='Description.html') Beschreibung
                         li
                             a(href='JsTests.html') Javascript Tests                            
-                div(class='col-md-8 containerDebug')                    
+                div(class='col-md-9 MainContent')                    
                     block childMainContent
-            div(id='FooterDiv' class='row containerDebug')
-                p this is the footer
+            div(id='FooterDiv' class='row Footer')
+                p Der Code dieser Anwendung ist in dieser #[a(href='https://github.com/stanel/frontend-nanodegree-resume') Github Repository]

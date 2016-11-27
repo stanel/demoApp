@@ -1,0 +1,15 @@
+extends layout.pug
+
+block childMainContent
+    script(src='js/ChessBoardV3.js')
+    script(src='js/FigureArranger.js')
+
+    include includes/Chessboard.pug
+
+    +buildChessBoard('theChessBoardInstance') 
+
+    script.
+        var figureArranger = new FigureArranger();
+        figureArranger.arrangeText('theChessBoardInstance',2,3,'hb')
+
+    

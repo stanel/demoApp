@@ -1,7 +1,15 @@
-.containerDebug{
-    border-color: indianred;
+.app{
+    border-color: lightblue;
     border-width: 1px;
+    border-style: solid;    
+}
+
+.pageNameArea{
+    border-color: lightblue;
+    border-width:0px;
+    border-bottom-width: 1px;
     border-style: solid;
+    color: maroon;        
 }
 
 .Navigation{ 
@@ -11,6 +19,31 @@
 
 .Navigation li{ 
     margin-top:10px;    
+}
+
+.MainContent{
+    padding-top:15px;
+    border-color: lightblue;
+    border-width:0px;
+    border-left-width: 1px;
+    border-style: solid;            
+}
+
+.PageTitle{
+    padding-left: 15px;
+    border-color: lightblue;
+    border-width:0px;
+    border-bottom-width: 1px;
+    border-style: solid;        
+}
+
+.Footer{
+    padding:10px;
+    font-size:15px;
+    border-color: lightblue;
+    border-width:0px;
+    border-top-width: 1px;
+    border-style: solid;            
 }
 
 .rowNumber{

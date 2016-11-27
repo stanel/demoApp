@@ -1,5 +1,3 @@
-extends layout.pug
-
 //- Builds the chess board
 mixin buildChessBoard(chessBoardId)
     div(id=chessBoardId)
@@ -40,24 +38,7 @@ mixin buildRowNumber(rowNumber)
 
 mixin buildColumnNumber(columnNumber)
     div(class='columnNumber') 
-        | #{chessBoard.getDisplayColumnNumber(columnNumber)}        
+        | #{chessBoard.getDisplayColumnNumber(columnNumber)}
 
-block childMainContent    
-    script(src='js/ChessBoardV3.js')
-    script(src='js/FigureArranger.js')
-
-    p Todo: mehrere Schachbretter anzeigen mit unterschiedlichen Farben und Größen
-
-    +buildChessBoard('firstChessBoardInstance')
-
-    p below there is another table and it has other colors
-
-    +buildChessBoard('secondChessBoardInstance')
-
-    script.
-        var figureArranger = new FigureArranger();
-
-        figureArranger.arrangeFiguresOnChessBoard('firstChessBoardInstance')
-        figureArranger.arrangeFiguresOnChessBoard('secondChessBoardInstance')
-
-        figureArranger.arrangeText('secondChessBoardInstance', 4, 5, '23');
+        
+    
