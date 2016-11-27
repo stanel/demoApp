@@ -7,7 +7,7 @@ function FigureArranger() {
     /**
      * Arranges all the figures on the specified chess board.
      */
-    this.arrangeFiguresOnChessBoard = function(chessBoardId) {
+    this.arrangeFiguresOnChessBoard = function (chessBoardId) {
         this.arrangeNotPawns(chessBoardId, 'white');
 
         for (var i = 1; i <= 8; i++) {
@@ -21,7 +21,7 @@ function FigureArranger() {
         }
     }
 
-    this.arrangeNotPawns = function(chessBoardId, color) {
+    this.arrangeNotPawns = function (chessBoardId, color) {
         var line = 1;
 
         if (color === 'black') {
@@ -38,9 +38,51 @@ function FigureArranger() {
         this.arrangeFigure(chessBoardId, line, 8, color, 'tower');
     }
 
-    this.arrangeFigure = function(chessBoardId, row, column, color, figure) {
-        var cellId = this.chessBoard.getCellId(row,column);
+    this.arrangeFigure = function (chessBoardId, row, column, color, figure) {
+        var cellId = this.chessBoard.getCellId(row, column);
         var cell = $('#' + chessBoardId + ' #' + cellId + '');
-        cell.attr('style', this.chessBoard.getStyleFor(color, figure));
+        var figureId = this.chessBoard.getFigureId(color, figure); 
+        var htmlForFigure = '<div id="' + figureId + '" style="' + this.chessBoard.getStyleFor(color, figure) + '"></div>';
+        cell.html(htmlForFigure);
+
+        this.makeFigureDraggable(chessBoardId, row, column, color, figure)
+    }    
+
+    /**
+     * Makes the specified figure.Specify the Figure. 
+     */
+    this.makeFigureDraggable = function (chessBoardId, row, column, color, figure) {
+        var cellId = this.chessBoard.getCellId(row, column);        
+        var figureId = this.chessBoard.getFigureId(color, figure);
+
+        var cell = $('#' + chessBoardId + ' #' + cellId + ''); 
+        var figure = $('#' + cellId + ' #' + figureId + '');
+        
+        var currentParent;
+
+        figure.draggable({
+            revert: 'invalid',
+            start: function () {
+                $(this).css('z-index', '1000')
+                currentParent = $(this).parent().attr('id');
+            },
+
+            stop:function(){
+                $(this).css('z-index', '1')
+            },
+        });
+
+        var cellsToWhomItCanBeDropped = '#' + this.chessBoard.getCellId(3, 3) + ','
+        cellsToWhomItCanBeDropped += '#' + this.chessBoard.getCellId(5, 5) + ','
+        cellsToWhomItCanBeDropped += '#' + this.chessBoard.getCellId(8, 8)
+
+        $(cellsToWhomItCanBeDropped).droppable({
+            accept: '#' + figureId,
+            drop: function (event, ui) {
+                // if (currentParent != $(this).attr('id')) {
+                //     $(ui.draggable).appendTo($(this)).removeAttr('style');
+                // }
+            }
+        });
     }
 }

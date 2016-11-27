@@ -5,6 +5,11 @@ QUnit.test('getCellId', function (assert) {
     assert.equal(cellId, 'cell_3_4');
 });
 
+QUnit.test('getFigureId', function (assert) {
+    var figureId = chessBoard.getFigureId('white', 'king');
+    assert.equal(figureId, 'figure_white_king');
+});
+
 QUnit.test('getFigures', function (assert) {
     var figures = chessBoard.getFigures();
     assert.equal(figures.length, 6);

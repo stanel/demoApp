@@ -12,6 +12,13 @@ function ChessBoardV3() {
     }
 
     /**
+     * Gets the id of the specified figure.
+     */
+    this.getFigureId = function (color, figure) {
+        return 'figure_' + color + '_' + figure;
+    }
+
+    /**
      * Gets all the figures. 
      */
     this.getFigures = function () {
@@ -45,6 +52,7 @@ function ChessBoardV3() {
         var style = "background-image: url('/img/ChessFigures.png');"
         style += "background-position-x: " + this.getFigureXPositionInSpriteImage(figure) + "px;"
         style += "background-position-y: " + this.getFigureYPositionInSpriteImage(color) + "px;";
+        style += 'height: 54px;';
         return style;
     }
 }
