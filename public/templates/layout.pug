@@ -1,0 +1,40 @@
+html
+    head
+        title #{pageTitle} 
+        link(
+            rel="stylesheet", 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", 
+            crossorigin="anonymous")
+        link(
+            rel="stylesheet", 
+            href="css/style.css")
+
+        script(
+			  src="https://code.jquery.com/jquery-3.1.1.js",
+			  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=",
+			  crossorigin="anonymous")
+        
+    body 
+        div(class='container')
+            div(class='row containerDebug')
+                p kurze demo Anwendung mit node.js, expressjs, pug und bootstrap
+            div(class='row containerDebug')
+                div(class='col-md-4 containerDebug')
+                div(class='col-md-8 containerDebug')
+                    p #{pageName}                
+            div(class='row containerDebug')
+                div(class='col-md-4 containerDebug')
+                    ul(class='Navigation')
+                        li 
+                            a(href='Chessboard.html') Schachbrett
+                        li
+                            a(href='Chessgame.html') Schachspiel
+                        li
+                            a(href='Description.html') Beschreibung
+                        li
+                            a(href='JsTests.html') Javascript Tests                            
+                div(class='col-md-8 containerDebug')                    
+                    block childMainContent
+            div(id='FooterDiv' class='row containerDebug')
+                p this is the footer

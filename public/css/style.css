@@ -1,0 +1,35 @@
+.containerDebug{
+    border-color: indianred;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.Navigation{ 
+    padding: 0px;    
+    list-style-type: none;    
+}
+
+.Navigation li{ 
+    margin-top:10px;    
+}
+
+/*it should be configurable*/
+.cell-white .cell-black{
+    width:55px;
+    height:55px;
+    float:left;
+}
+
+.cell-white{
+    width:55px;
+    height:55px;    
+    background-color: cornsilk;
+    float:left;
+}
+
+.cell-black{
+    width:55px;
+    height:55px;    
+    background-color: cornflowerblue;
+    float:left;
+}

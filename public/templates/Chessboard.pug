@@ -1,0 +1,40 @@
+extends layout.pug
+
+//- Builds the chess board
+mixin buildChessBoard(chessBoardId)
+    div(id=chessBoardId)
+        -for (var i = 1; i <= 8; i++)
+            +buildRow(i)
+
+mixin buildRow(rowNumber)
+    if(rowNumber % 2 === 0)
+        +buildRowColumns(rowNumber, 'cell-black','cell-white')
+    else
+        +buildRowColumns(rowNumber, 'cell-white','cell-black')
+
+mixin buildRowColumns(rowNumber, classForEvenColumnNumbers, classForOddColumnNumbers)                
+    div(class='row')   
+        div(class='col-md-12')
+            -for (var i = 1; i <= 8; i++)
+                if(i % 2 === 0)
+                    div(id='cell_'+rowNumber+'_'+i,class=classForEvenColumnNumbers)
+                else
+                    div(id='cell_'+rowNumber+'_'+i,class=classForOddColumnNumbers)
+
+block childMainContent    
+    script(src='js/ChessBoardV3.js')
+    script(src='js/FigureArranger.js')
+
+    p Todo: mehrere Schachbretter anzeigen mit unterschiedlichen Farben und Größen
+
+    +buildChessBoard('firstChessBoardInstance')
+
+    p below there is another table and it has other colors
+
+    +buildChessBoard('secondChessBoardInstance')
+
+    script.
+        var figureArranger = new FigureArranger();
+
+        figureArranger.arrangeFiguresOnChessBoard('firstChessBoardInstance')
+        figureArranger.arrangeFiguresOnChessBoard('secondChessBoardInstance')
